@@ -1,0 +1,29 @@
+v1:state learning ratio:0.00001,
+   the first 20 epoches,vgg feature loss bear a big portion of the loss(vgg loss * 1,color loss * 1 and lap loss*0.000000001),
+   the later 30 epoches the ratio changes(vgg loss * 1,color loss * 10 and lap loss*0.000000001*50),
+   training image:movie
+
+v2:initial learning ratio:0.001,learning ratio is changing according to the epoches(lrd = self.opt.lr / self.opt.niter_decay,lr = self.old_lr - lrd),
+   add a layer to flow estimator, so as to get flow which is quarter of image size,
+   loss component:vgg loss * 1,color loss * 10 and lap loss*0.000000001*50,
+   training image:america
+
+   end at epoch 36.
+
+
+v3:following v2 version.
+   train from the scratch.
+   vgg_loss and lap_loss multiply 2.
+   30 epoch can get good result.
+
+
+------
+
+http://pytorch.apachecn.org/cn/tutorials/advanced/super_resolution_with_caffe2.html#
+
+------
+
+The network is cutted short which just has a flow and the synthesis part has four columns(the original part has six columns).
+
+
+   
